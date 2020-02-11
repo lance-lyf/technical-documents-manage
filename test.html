@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //实例，原型，构造函数
+        //父类
+        function People(age,name){
+            this.name = name;
+            this.age = age;
+            
+        }
+        People.prototype.sayHello = function(){
+            alert("nihao,我叫"+this.name)
+        }
+        //子类
+        function Student(code,grade){
+            this.code = code;
+            this.grade = grade;
+        }
+        Student.prototype = new People(5,"刘友福");
+        var result = new Student();
+        result.sayHello();
+        console.log(result);
+    </script>
+</body>
+</html>

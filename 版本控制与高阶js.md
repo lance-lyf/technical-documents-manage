@@ -1,8 +1,71 @@
-# git vs svn
+今日目标
+====
+1. [这是一个typora快捷键介绍的链接，很全](https://www.cnblogs.com/hider/p/11614688.html)
+2. git vs svn
+3. 原型
+# 一、git vs svn
 * ## 提交代码模式上不同
-    * git可分布式版本控制。每个用户电脑为一个服务器，犹如cdn地狱式服务器分布那样，可以减少时间等待。
-    * svn集中管理在中央服务。中央服务器控制版本。
+    * git可分布式版本控制。**每个用户电脑为一个服务器**，犹如cdn地狱式服务器分布那样，可以减少时间等待。
+    * svn集中管理在中央服务。**中央服务器控制版本**。
 * ## 中央服务器
-    * git的中央服务器起到一个临时存储的功能，灵活性强。
-    * svn对中央服务器高度依赖，失去灵活性。
+    * git的中央服务器起到一个临时存储的功能，**灵活性强**。
+    * svn对中央服务器高度依赖，**失去灵活性**。
+# 二、原型
+1. ### 原型、实例、构造函数
+   * #### 代码
+    ```
+        //实例，原型，构造函数
+        function People(age,name){
+            this.name = name;
+            this.age = age;
+        }
+        var result = new People(18,'lyf');
+        //实例的原型 等于构造函数的原型 true
+        console.log(result.__proto__== People.prototype);
+        //实例的构造函数等于实例 true
+        console.log(result.constructor== result.__proto__.constructor); 
+    ```
+    * #### 图片
+    ![原型图三者关系图](2020-02-11-16-35-37.png)
+2. ### 原型链
+   * #### 代码
+    ```
+        //实例，原型，构造函数
+        function People(age,name){
+            this.name = name;
+            this.age = age;
+        }
+        var result = new People(18,'lyf');
+        //实例的原型 等于构造函数的原型 true
+        console.log(result.__proto__== People.prototype);
+        //实例的构造函数等于实例 true
+        console.log(result.constructor== result.__proto__.constructor); 
+    ```
+   * #### 图片
+    ![](2020-02-11-17-22-47.png)
+
+
+3. #### 继承
+   * 代码
+
+    ```
+      //实例，原型，构造函数
+        //父类
+        function People(age,name){
+            this.name = name;
+            this.age = age;
+        }
+        //子类
+        function Student(code,grade){
+            this.code = code;
+            this.grade = grade;
+        }
+        Student.prototype = new People();
+        var result = new Student();
+        console.log(result);
+        //原型链有四层，子类继承父类方法和属性 
+    ```
+
     
+   
+   ​     

@@ -4,6 +4,7 @@
 2. git vs svn
 3. 原型
 4. css中各种居中的解决方案
+5. 闭包
 # 一、git vs svn
 * ## 提交代码模式上不同
     * git可分布式版本控制。**每个用户电脑为一个服务器**，犹如cdn地狱式服务器分布那样，可以减少时间等待。
@@ -82,14 +83,14 @@
         console.log(name);
         // //解析
         // //全局环境
-        // function foo(){}->"00xx11";
-        // var bar = "00xx11";
+        // function foo(){}->"00xx11"
         // //局部环境
         // function foo(){
         //     var name
         //     function->"0055xx";
         //     name = "kebi";
         // }
+        // var bar = "0055xx";
         // bar() 
 * 异步定时器闭包
 
@@ -117,8 +118,8 @@
         /* 只执行匿名函数1
         000001 ->"i=0,0000x1";
         000002 ->"i=1,0000x2";
-        000002 ->"i=2,0000x3";
-        000002 ->"i=3,0000x4";
+        000003 ->"i=2,0000x3";
+        000004 ->"i=3,0000x4";
         0000x1();队列1
         0000x2();队列2
         0000x3();队列3
@@ -140,7 +141,7 @@
      1. 父元素 display: table-cell; vertical-align: center;text-align: center; 子元素 display: inline-block;
      2. 父元元素相对定位： display: relative; 子元素display: absolute;left: 50%;top: 50%; transform: translateX(-50%); transform: translateY(-50%);
      3. 父元素：display: flex; align-items: center;justify-content: center;
-   
+
 
 
 

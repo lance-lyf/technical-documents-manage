@@ -65,6 +65,64 @@
         console.log(result);
         //原型链有四层，子类继承父类方法和属性 
     ```
+## 三、闭包
+1. 简单闭包
+
+        // 创建闭包最常见的方式函数作为返回值
+        var name = "zhang san";
+        function foo() {
+            var name = "kebi";
+            return function () {
+                console.log(name);
+            };
+        }
+        var bar = foo();
+        bar(); //打印kebi    --外部函数访问内部变
+        console.log(name);
+        // //解析
+        // //全局环境
+        // function foo(){}->"00xx11";
+        // var bar = "00xx11";
+        // //局部环境
+        // function foo(){
+        //     var name
+        //     function->"0055xx";
+        //     name = "kebi";
+        // }
+        // bar() 
+2.异步定时器闭包
+
+       //普通的循环
+        for (var i = 0; i < 4; i++) {
+            setTimeout(function () {
+                console.log(i);
+            }, 300);
+        }
+        //4444
+        //
+        for (var i = 0; i < 4; i++) {
+            setTimeout(
+                (function (i) {
+                    return function () {
+                        console.log(i);
+                    };
+                })(i),
+                300
+            );
+        }
+        //0,1,2,3
+        //全局环境
+        //局部环境
+        /* 只执行匿名函数1
+        000001 ->"i=0,0000x1";
+        000002 ->"i=1,0000x2";
+        000002 ->"i=2,0000x3";
+        000002 ->"i=3,0000x4";
+        0000x1();队列1
+        0000x2();队列2
+        0000x3();队列3
+        0000x4(); */
+
 
     
    
